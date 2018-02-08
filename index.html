@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Print My Cheque</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css?v=33" />
+</head>
+<body>
+<div class="container-fluid">
+	<div id="app">
+		<div class="row" id="form">
+			<div class="col-md">
+				<div class="card card-block">
+					<div class="card-body">
+						<h3 class="card-title">Print Cheque</h3>
+						<p class="card-text">
+							Type your details and get your cheque printed!
+						</p>
+						<form class="form-horizontal">
+							<div class="row">
+								<div class="col-md-4">
+									<select v-model="bank" class="form-control">
+										<option value="ubi">Union Bank of India</option>
+									</select>
+								</div>
+								<div class="col-md-4">
+									<div class="form-check form-check-inline">
+									  <label class="form-check-label">
+									    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" v-model="is_ac_pay" value="1"> A/C Pay
+									  </label>
+									</div>
+								</div>
+							</div>
+							<div class="row" style="margin-top: 5px;">
+								<div class="col-md-4">
+									<input type="date" v-model="date" class="form-control" />
+								</div>
+								<div class="col-md-4">
+									<input type="text" autofocus v-model="name" class="form-control" placeholder="Enter the payee name, e.g. Daksh Mehta" />
+								</div>
+								<div class="col-md-4">
+									<input type="number" v-model="amount" class="form-control" placeholder="Enter your amount, e.g. 10000.00" min="0" />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md">
+				<div id="cheque">
+					<div id="left">
+						<div id="line" class="type">
+							<span v-if="is_ac_pay">A/C PAY</span>
+							<span v-else>&nbsp;</span>
+						</div>
+						<div id="line" class="name">
+							{{ name }}
+						</div>
+						<div id="line" class="amount-words">
+							{{ amountInWords }}
+						</div>
+					</div>
+					<div id="right">
+						<div id="date">{{ date_formatted }}</div>
+						<div class="type-strike">
+							<span v-if="is_ac_pay">*****</span>
+							<span v-else>&nbsp;</span>
+						</div>
+						<div class="amount-numeric">
+							** {{ amountFormatted }} **
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row print-btn">
+			<div class="col-md text-center">
+				<br/>
+					<button type="button" class="btn btn-info btn-lg" onclick="window.print();">
+					PRINT NOW
+					</button><br/>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/app.js?v=33"></script>
+</body>
+</html>

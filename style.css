@@ -1,0 +1,106 @@
+#app {
+	margin-top: 25px;
+}
+.m-r-0 {
+	margin-right: 0px;
+}
+.m-l-0 {
+	margin-left: 0px;
+}
+.p-l-0 {
+	padding-left: 0px;
+}
+
+#form {
+	margin-bottom: 20px;
+}
+
+#cheque {
+	margin: 0px auto;
+	border: 1px solid black;
+	width: 205mm;
+	height: 90mm;
+	text-transform: uppercase;
+}
+#cheque #left {
+	width: 155mm;
+	float: left;
+}
+#cheque #right {
+	width: 49mm;
+	float: right;
+}
+#cheque #date {
+	font-weight: bold;
+	letter-spacing: 2mm;
+	line-height: 9mm;
+	padding-top: 4mm;
+}
+#cheque .type-strike {
+	font-weight: bold;
+	margin-top: 7mm !important;
+	margin-left: 23mm !important;
+}
+#cheque #line {
+	border-bottom: 1px solid black;
+	line-height: 9mm;
+	margin-top: 2mm;
+}
+#cheque #left #line {
+	width: 140mm;
+}
+#cheque .type {
+	font-weight: bold;
+	margin-top: 3mm !important;
+	margin-left: 10mm;
+}
+#cheque .name {
+	font-weight: bold;
+	margin-top: 4mm !important;
+	margin-left: 20mm;
+}
+#cheque .amount-words {
+	font-weight: bold;
+	margin-left: 30mm;
+	width: 115mm !important;
+	margin-top: -1mm !important;
+	font-size: 15px;
+}
+#cheque .amount-numeric {
+	font-weight: bold;
+	margin-top: 9mm !important;
+}
+#cheque .hp {
+	color: gray;
+}
+
+@media print {
+	@page {
+		margin: 0;
+		size: landscape;
+	}
+	#form {
+		display: none;
+	}
+	body, html {
+		margin: 0;
+		padding: 0;
+	}
+	#app {
+		margin-top: 0;
+	}
+	#cheque {
+		margin-top: 59mm;
+		float: right;
+		display: block;
+		margin-right: -7mm;
+		page-break-before: always;
+	}
+	.page-break	{ display: block; page-break-before: always; }
+	#cheque, #cheque #line, #cheque #amount-box {
+		border: none;
+	}
+	#cheque .hp, .print-btn {
+		display: none;
+	}
+}
